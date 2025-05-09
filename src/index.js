@@ -41,6 +41,8 @@ const mutedRole = process.env.MUTED_ROLE_ID;
 const app = express();
 const port = 3113;
 
+app.set('trust proxy', 'loopback');
+
 // Load the events and commands
 const events = await loadEvents(new URL('events/', import.meta.url));
 const commands = await loadCommands(new URL('commands/', import.meta.url));
@@ -82,7 +84,7 @@ app.get('/callback', async (req, res) => {
     const user = await oauth.getUserData(token);
     const id = user.id;
     await oauth.invalidateToken(token);
-    const ip = req.headers['cf-connecting-ip'];
+    const ip = req.ip;
 
     const ipData = await getIpData(ip);
     if (await checkRole(guild, id, mutedRole)) {
