@@ -28,7 +28,7 @@ const client = new Client({
 });
 
 // Add your member roles to this array
-const memberRoles = [process.env.ROLE_ID, process.env.ROLE_ID_2];
+const memberRoles = [process.env.ROLE_ID];
 
 // Add your flagged alt account roles to this array. Comment this line out if you're not using it. Make sure to also comment out the grantRole function that grants this role.
 const altRole = process.env.ALT_ROLE_ID;
