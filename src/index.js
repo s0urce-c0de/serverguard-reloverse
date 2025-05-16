@@ -11,7 +11,7 @@ import * as oauth from './util/oauth.js';
 import { checkRole, grantRole, logWebhook } from './util/discordManager.js';
 
 async function getIpData(ip) {
-  const query = await fetch(`http://ip-api.com/json/${ip}?fields=16990208`);
+  const query = await fetch(`http://ip-api.com/json/${ip}?fields=16990720`);
   const data = await query.json();
   return data;
 }
